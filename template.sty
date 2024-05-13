@@ -1,0 +1,80 @@
+\usepackage[brazilian]{babel}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage[skip=0pt plus1pt, indent=1.25cm]{parskip}
+\usepackage[top=3cm, left=3cm, right=2cm, bottom=6.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage[alf]{abntex2cite}
+% \usepackage[numbib]{tocbibind}
+\usepackage{sectsty}
+\usepackage{etoolbox}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+
+% Resolve o conflito entre substr.sty e abnt2cite (https://groups.google.com/g/abntex2/c/Hb0TnI-kD8Q?pli=1)
+\let\su@ExpandTwoArgs\relax
+\let\IfSubStringInString\relax
+\let\su@IfSubStringInString\relax 
+
+\usepackage{glossaries}
+
+% Cabeçalho
+\pagestyle{fancy}
+\fancyhead{} % Limpa todos os cabeçalhos
+
+% Define a altura do cabeçalho
+\setlength{\headheight}{135pt}
+
+\chead{
+\includegraphics[width=\linewidth]{cabeçalho.png}\par
+\footnotesize
+\textbf{MINISTÉRIO DA EDUCAÇÃO} \\
+\textbf{SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLOGICA} \\
+\textbf{INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAIS} \\
+\textbf{PRÓ-REITORIA DE PESQUISA, PÓS-GRADUAÇÃO E INOVAÇÃO} \\
+\scriptsize
+% Rua. Luz Interior, 360 – 5º andar – Santa Luzia – 36030-776 – Juiz de Fora – MG \\
+% Telefones: (32) 32574112 / (32) 32574113 / (32) 32574161
+Rua Luz Interior, 360 – 5º andar – Estrela Sul – 36030-713– Juiz de Fora – MG \\
+Telefones: (32) 32574110 / (32) 32574111 / (32) 32574112 / (32) 32574113 / (32) 32574161
+}
+
+
+% Rodapé
+\fancyfoot[C]{} % Limpar conteúdo centralizado do rodapé
+\fancyfoot[R]{\thepage} % Número da página à direita
+
+% Seção
+\makeatletter
+\renewcommand\@seccntformat[1]{\csname the#1\endcsname.\ }
+\makeatother
+\sectionfont{\fontsize{12}{14}\selectfont}
+
+\setstretch{1.5} % Define o espaçamento entrelinhas
+\setlength{\parindent}{0cm} % Define o recuo de primeira linha
+
+% Definindo um novo comando para o texto com fundo colorido
+\newcommand{\background}[1]{%
+    \noindent\colorbox{gray!20}{%
+        \parbox{\dimexpr\textwidth-2\fboxsep\relax}{#1}%
+    }%
+}
+
+% Definindo o espaçamento após a seção
+\titlespacing{\section}{0pt}{\baselineskip}{0pt}
+\titlespacing{\subsection}{0pt}{\baselineskip}{0pt}
+\titlespacing{\subsubsection}{0pt}{\baselineskip}{0pt}
+
+% Adiciona espaço vertical antes das referências
+\apptocmd{\thebibliography}{\vspace{.5\baselineskip}}{}{}
